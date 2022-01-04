@@ -85,42 +85,10 @@ const Welcome: React.FC = () => {
   );
 
   return (
-    <ImageBackground
-      source={isUserHydrated && !isUserAuth ? PatternImage : null}
-      resizeMode="cover"
-      style={styles.background}
-    >
-      <SafeAreaView style={styles.safeArea} edges={['top']}>
-        <View style={styles.container}>
-          <BottomSheet
-            backgroundComponent={(props) => (
-              <BottomSheetBackground {...props} />
-            )}
-            handleComponent={() => <View />}
-            enableContentPanningGesture={false}
-            enableHandlePanningGesture={false}
-            enablePanDownToClose={false}
-            enableOverDrag={false}
-            ref={bottomSheetRef}
-            index={bottomSheetIndex}
-            snapPoints={snapPoints}
-            keyboardBehavior="fillParent"
-            keyboardBlurBehavior="restore"
-          >
-            <BottomSheetView style={{ paddingTop: 20, height: layout.height }}>
-              <TabView
-                navigationState={{ index, routes }}
-                renderTabBar={renderTabBar}
-                renderScene={renderScene}
-                onIndexChange={handleTabIndexChanges}
-                keyboardDismissMode="none"
-                initialLayout={{ height: layout.height, width: layout.width }}
-              />
-            </BottomSheetView>
-          </BottomSheet>
-        </View>
-      </SafeAreaView>
-    </ImageBackground>
+    <SafeAreaView style={styles.safeArea} edges={['top']}>
+      <View style={styles.container}>
+      </View>
+    </SafeAreaView>
   );
 };
 

@@ -3,11 +3,9 @@ import { StyleSheet } from 'react-native';
 import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { Formik, Field } from 'formik';
 import * as yup from 'yup';
-import { Spacer, Button, Typography } from 'components';
+import { Spacer, Button, Typography, CustomBottomSheetTextInput } from 'components';
 import { colors } from 'theme';
 import { useUser, useApi } from 'hooks';
-
-import Input from './CustomBottomSheetTextInput';
 
 const registrationValidationSchema = yup.object().shape({
   email: yup
@@ -63,7 +61,7 @@ export const Registration: React.FC = () => {
         {({ handleSubmit, isValid }) => (
           <>
             <Field
-              component={Input}
+              component={CustomBottomSheetTextInput}
               name="email"
               placeholder="Почта"
               keyboardType="email-address"
@@ -73,7 +71,7 @@ export const Registration: React.FC = () => {
             />
             <Spacer height={28} />
             <Field
-              component={Input}
+              component={CustomBottomSheetTextInput}
               name="password"
               placeholder="Пароль"
               secureTextEntry
@@ -83,7 +81,7 @@ export const Registration: React.FC = () => {
             />
             <Spacer height={28} />
             <Field
-              component={Input}
+              component={CustomBottomSheetTextInput}
               name="confirmPassword"
               placeholder="Подтвердите пароль"
               returnKeyType="done"

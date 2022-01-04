@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
-import { BottomSheetScrollView } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetScrollView, BottomSheetTextInput } from '@gorhom/bottom-sheet';
 import { Formik, Field } from 'formik';
 import * as yup from 'yup';
-import { Spacer, Button, CustomBottomSheetTextInput } from 'components';
+import { Spacer, Button, CustomBottomSheetTextInput, Typography } from 'components';
 import { useUser, useApi } from 'hooks';
 
 const loginValidationSchema = yup.object().shape({
@@ -28,52 +28,67 @@ export const LoginScreen: React.FC = () => {
     email: string;
     password: string;
   }) => {
+    console.log("handleOnSubmit")
     signIn(email, password);
   };
 
+  const snapPoints = useMemo(() => ["25%", "50%", "90%"], []);
+
   return (
-    <BottomSheetScrollView
-      contentContainerStyle={styles.container}
-      keyboardShouldPersistTaps="always"
-      bounces={false}
-      showsVerticalScrollIndicator={false}
+    <BottomSheet
+      snapPoints={snapPoints}
     >
-      <Formik
-        validationSchema={loginValidationSchema}
-        initialValues={{ email: '', password: '' }}
-        onSubmit={handleOnSubmit}
+      <BottomSheetScrollView
+        contentContainerStyle={styles.container}
+        keyboardShouldPersistTaps="always"
+        bounces={false}
+        showsVerticalScrollIndicator={false}
       >
-        {({ handleSubmit, isValid }) => (
-          <>
-            <Field
-              component={CustomBottomSheetTextInput}
-              name="email"
-              placeholder="Почта"
-              keyboardType="email-address"
-              returnKeyType="next"
-              autoCapitalize="none"
-              caretHidden={false}
-            />
-            <Spacer height={28} />
-            <Field
-              component={CustomBottomSheetTextInput}
-              name="password"
-              placeholder={'Пароль'}
-              secureTextEntry
-              returnKeyType="done"
-              autoCapitalize="none"
-              caretHidden={false}
-            />
-            <Spacer height={40} />
-            <Button
-              onPress={handleSubmit}
-              title="Войти"
-              disabled={!isValid || !isServerConnected}
-            />
-          </>
-        )}
-      </Formik>
-    </BottomSheetScrollView>
+        <Formik
+          validationSchema={loginValidationSchema}
+          initialValues={{ email: '', password: '' }}
+          onSubmit={handleOnSubmit}
+        >
+          {({ handleSubmit, isValid }) => (
+            <>
+              <Field
+                component={BottomSheetTextInput}
+                name="email"
+                placeholder="Почта"
+                keyboardType="email-address"
+                returnKeyType="next"
+                autoCapitalize="none"
+                caretHidden={false}
+              />
+              <Spacer height={28} />
+              <Field
+                component={BottomSheetTextInput}
+                name="password"
+                placeholder={'Пароль'}
+                secureTextEntry
+                returnKeyType="done"
+                autoCapitalize="none"
+                caretHidden={false}
+              />
+              <Spacer height={40} />
+              <Button
+                onPress={handleSubmit}
+                title="Войти"
+                // disabled={!isValid}
+              />
+            </>
+          )}
+        </Formik>
+      </BottomSheetScrollView>
+    </BottomSheet>
+    // <>
+    //   <Typography
+    //     color='red'
+    //     size='xlarge'
+    //   >
+    //     Test
+    //   </Typography>
+    // </>
   );
 };
 

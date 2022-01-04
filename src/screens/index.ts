@@ -1,5 +1,5 @@
 import MainScreen from './main';
-import {LoginScreen} from './auth/Login'
+import { LoginScreen } from './auth/Login'
 
 export const TABS = 'TABS';
 export const EVENT_STACK = 'EVENT_STACK';

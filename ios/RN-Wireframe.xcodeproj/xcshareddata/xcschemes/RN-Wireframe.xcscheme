@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "theatre.app"
-               BlueprintName = "theatre"
-               ReferencedContainer = "container:theatre.xcodeproj">
+               BuildableName = "RN-Wireframe.app"
+               BlueprintName = "RN-Wireframe"
+               ReferencedContainer = "container:RN-Wireframe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "theatreTests.xctest"
-               BlueprintName = "theatreTests"
-               ReferencedContainer = "container:theatre.xcodeproj">
+               BuildableName = "RN-WireframeTests.xctest"
+               BlueprintName = "RN-WireframeTests"
+               ReferencedContainer = "container:RN-Wireframe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "theatre.app"
-            BlueprintName = "theatre"
-            ReferencedContainer = "container:theatre.xcodeproj">
+            BuildableName = "RN-Wireframe.app"
+            BlueprintName = "RN-Wireframe"
+            ReferencedContainer = "container:RN-Wireframe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "theatre.app"
-            BlueprintName = "theatre"
-            ReferencedContainer = "container:theatre.xcodeproj">
+            BuildableName = "RN-Wireframe.app"
+            BlueprintName = "RN-Wireframe"
+            ReferencedContainer = "container:RN-Wireframe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

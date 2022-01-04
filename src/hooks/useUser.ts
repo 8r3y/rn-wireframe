@@ -21,6 +21,7 @@ export const useUser = () => {
 
   const signIn = async (email: string, password: string) => {
     try {
+      console.log("signIn", {email, password})
       await store.userStore.signIn(email, password);
       Keyboard.dismiss();
     } catch (e: any) {
