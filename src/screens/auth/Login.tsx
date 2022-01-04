@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
-import BottomSheet, { BottomSheetScrollView, BottomSheetTextInput } from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetScrollView } from '@gorhom/bottom-sheet';
 import { Formik, Field } from 'formik';
 import * as yup from 'yup';
-import { Spacer, Button, CustomBottomSheetTextInput, Typography } from 'components';
+import { Spacer, Button, CustomBottomSheetTextInput } from 'components';
 import { useUser, useApi } from 'hooks';
 
 const loginValidationSchema = yup.object().shape({
@@ -32,7 +32,7 @@ export const LoginScreen: React.FC = () => {
     signIn(email, password);
   };
 
-  const snapPoints = useMemo(() => ["25%", "50%", "90%"], []);
+  const snapPoints = useMemo(() => ["45%"], []);
 
   return (
     <BottomSheet
@@ -52,7 +52,7 @@ export const LoginScreen: React.FC = () => {
           {({ handleSubmit, isValid }) => (
             <>
               <Field
-                component={BottomSheetTextInput}
+                component={CustomBottomSheetTextInput}
                 name="email"
                 placeholder="Почта"
                 keyboardType="email-address"
@@ -62,7 +62,7 @@ export const LoginScreen: React.FC = () => {
               />
               <Spacer height={28} />
               <Field
-                component={BottomSheetTextInput}
+                component={CustomBottomSheetTextInput}
                 name="password"
                 placeholder={'Пароль'}
                 secureTextEntry
@@ -74,21 +74,13 @@ export const LoginScreen: React.FC = () => {
               <Button
                 onPress={handleSubmit}
                 title="Войти"
-                // disabled={!isValid}
+                disabled={!isValid || !isServerConnected}
               />
             </>
           )}
         </Formik>
       </BottomSheetScrollView>
     </BottomSheet>
-    // <>
-    //   <Typography
-    //     color='red'
-    //     size='xlarge'
-    //   >
-    //     Test
-    //   </Typography>
-    // </>
   );
 };
 
