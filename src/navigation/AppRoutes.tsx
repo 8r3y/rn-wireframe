@@ -6,7 +6,7 @@ import {
 } from '@react-navigation/stack';
 import { observer } from 'mobx-react';
 import { useKeyboard } from '@react-native-community/hooks';
-import { WELCOME, TABS, WelcomeScreen, PLAYER, PlayerScreen } from 'screens';
+import { WELCOME, TABS, PLAYER, MainScreen, LoginScreen } from 'screens';
 import { useUser, useApi } from 'hooks';
 import { IAppRoutesProps } from 'models';
 
@@ -50,12 +50,12 @@ const AppRoutes = () => {
             <AppStack.Screen name={TABS} component={BottomTabRoutes} />
             <AppStack.Screen
               name={PLAYER}
-              component={PlayerScreen}
+              component={MainScreen}
               options={playerScreenOptions}
             />
           </>
         ) : (
-          <AppStack.Screen name={WELCOME} component={WelcomeScreen} />
+          <AppStack.Screen name={WELCOME} component={LoginScreen} />
         )}
       </AppStack.Navigator>
     </>

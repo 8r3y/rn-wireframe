@@ -12,9 +12,9 @@ export const useUser = () => {
     try {
       await store.userStore.signUp(email, password);
       Keyboard.dismiss();
-    } catch (e) {
+    } catch (e: any) {
       console.log('@SignUp - Error in request: ', e);
-      const message = e.message ?? e;
+      const message = e?.message ?? e;
       Alert.alert('Ошибка', message);
     }
   };
@@ -23,9 +23,9 @@ export const useUser = () => {
     try {
       await store.userStore.signIn(email, password);
       Keyboard.dismiss();
-    } catch (e) {
+    } catch (e: any) {
       console.log('@SignIn - Error in request: ', e);
-      const message = e.message ?? e;
+      const message = e?.message ?? e;
       Alert.alert('Ошибка', message);
     }
   };
