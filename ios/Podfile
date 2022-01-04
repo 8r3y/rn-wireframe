@@ -12,7 +12,7 @@ target 'RN-Wireframe' do
     :hermes_enabled => true
   )
 
-  target 'theatreTests' do
+  target 'RN-WireframeTests' do
     inherit! :complete
     # Pods for testing
   end
