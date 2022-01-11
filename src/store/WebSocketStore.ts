@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import { generateUuid } from 'helpers/utils';
-import { wsRoutes } from 'ws-config';
+import { wsRoutes } from 'constants/web-socket';
 
 import { IRootStore } from '.';
 

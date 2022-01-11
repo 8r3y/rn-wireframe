@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { makeAutoObservable, runInAction } from 'mobx';
 import { create, persist, IHydrateResult } from 'mobx-persist';
-import { wsRoutes } from 'ws-config';
+import { wsRoutes } from 'constants/web-socket';
 
 import { IRootStore } from '.';
 
@@ -101,7 +101,7 @@ class UserStore {
     }
   }
 
-  singOut() {
+  signOut() {
     this.persistedUser?.rehydrate().then(() => {
       runInAction(() => {
         this.userToken = null;
